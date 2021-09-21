@@ -1,12 +1,20 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { getMenus } from "./actions";
+import { RestaurantCard } from './components/restaurantCard/RestaurantCard';
 import "./restaurantsList.css";
+
+/* const RestaurantsItems = (props) => {
+  return (
+    
+  )
+} */
 
 export const RestaurantsList = () => {
 
-  const [loding, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [reload, setReload] = useState(false);
+  const [count, setCount] = useState(0);
   const [menus, setMenus] = useState([]);
 
   useEffect(() => {
@@ -17,7 +25,7 @@ export const RestaurantsList = () => {
   }, []);
 
   useEffect(() => {
-    if(reload){
+    if (reload) {
       setMenus([]);
       getMenus().then(menusResponse => {
         setMenus(menusResponse);
@@ -29,50 +37,28 @@ export const RestaurantsList = () => {
 
   console.log("Render RestaurantsList : ", reload);
 
+  const Items = React.memo(() => <>
+    {menus.map(menuItem =>
+      <RestaurantCard restaurant={menuItem} key={menuItem.id} />
+    )}
+  </>, [menus]);
+
   return (
     <>
       <div id="header">
         <span className="logo"></span>
         <span className="title">Inicio</span>
       </div>
+      <div>
+        {count}
+        <button onClick={() => setCount(count + 1)}>Add count</button>
+      </div>
       <button onClick={() => setReload(true)}>Reload</button>
       <div className="restaurants">
-        {loding && 
+        {loading &&
           <div className="loading">Cargando</div>
         }
-        {!loding && menus.map(menuItem =>
-          <div className="restaurant-card loading" key={menuItem.id}>
-            <div>Carrusel</div>
-            <form>
-              <div>
-                <ul>
-                  <li>
-                    <input
-                      type="checkbox"
-                      onChange={() => console.log("make order")}
-                    />
-                    <span>Nombre plato</span>
-                  </li>
-                  <li>
-                    <input type="checkbox" />
-                    <span>Nombre plato 2</span>
-                  </li>
-                  <li>
-                    <input type="checkbox" />
-                    <span>Nombre plato 3</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="restaurant-info">
-                <span>{menuItem.name}</span>
-                <span>Teléfono {menuItem.phone}</span>
-                {menuItem.onlineEnabled &&
-                  <button>Pedir</button>
-                }
-              </div>
-            </form>
-          </div>
-        )}
+        {!loading && <Items />}
       </div>
     </>
   );

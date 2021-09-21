@@ -1,7 +1,7 @@
 [
     {
         "id" : 1,
-        "name" : "Restaurante 1",
+        "name" : "Mi restaurante",
         "phone" : "+34 000 000 000",
         "menu" : [
             {

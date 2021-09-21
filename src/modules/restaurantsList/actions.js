@@ -1,10 +1,8 @@
-import menus from './restaurantsMenus.json';
+import { Config } from "../../config/Config";
 
 export const getMenus = () => {
     console.log("Get menus");
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(menus);
-        }, 5000);
-    });
+
+    return fetch(`${Config.backendBaseUrl}/menus`)
+        .then(response => response.json());
 }
