@@ -1,9 +1,17 @@
+
+import React, { useState } from 'react';
 import { getMenus } from "./actions";
 import "./restaurantsList.css";
 
 export const RestaurantsList = () => {
 
-  const menus = getMenus();
+  const [menus, setMenus] = useState([])
+
+  getMenus().then(menusResponse => {
+    setMenus(menusResponse);
+  });
+
+  console.log("Render RestaurantsList");
 
   return (
     <>

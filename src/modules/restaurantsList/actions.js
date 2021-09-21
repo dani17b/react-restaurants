@@ -1,5 +1,10 @@
 import menus from './restaurantsMenus.json';
 
 export const getMenus = () => {
-    return menus;
+    console.log("Get menus");
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(menus);
+        }, 2000);
+    });
 }
