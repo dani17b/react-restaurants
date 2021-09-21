@@ -2,10 +2,11 @@ import logo from './logo.svg';
 import './App.css';
 import { Home } from './modules/home/Home';
 import { RestaurantsList } from './modules/restaurantsList/RestaurantsList';
+import { Login } from './modules/login/Login';
 
 function App() {
   return (
-    <RestaurantsList />
+    <Login />
   )
   /* return (
     <div className="App">
