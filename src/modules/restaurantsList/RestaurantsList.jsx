@@ -48,6 +48,7 @@ export const RestaurantsList = () => {
       <div id="header">
         <span className="logo"></span>
         <span className="title">Inicio</span>
+        <span className="title">Gestion</span>
       </div>
       <div>
         {count}

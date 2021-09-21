@@ -28,7 +28,8 @@ export const Login = () => {
             Esto es la pantalla de Login
             <form onSubmit={(e) => {
                 loginUser(form.login, form.password).then(userInfo => {
-                    debugger;
+                    // TODO ver como gestionar user info
+                    window.location.href = '/home';
                 });
                 e.stopPropagation();
                 e.preventDefault();
