@@ -5,6 +5,6 @@ export const getMenus = () => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(menus);
-        }, 2000);
+        }, 5000);
     });
 }
