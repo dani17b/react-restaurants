@@ -31,21 +31,23 @@ const Login = (props) => {
 
     return (
         <div className="login">
-            Esto es la pantalla de Login
-            {loading &&
-                <div className="loading">Haciendo login contra el servidor</div>
-            }
-            <form onSubmit={(e) => {
-                login(form.login, form.password);
-                e.stopPropagation();
-                e.preventDefault();
+            <div className="form-container">
+                <div className="form-container-logo"></div>
+                {loading &&
+                    <div className="loading">Haciendo login contra el servidor</div>
+                }
+                <form onSubmit={(e) => {
+                    login(form.login, form.password);
+                    e.stopPropagation();
+                    e.preventDefault();
 
-                return false;
-            }}>
-                <input type="text" placeholder="Login" value={form.login} onChange={(e) => updateValue(e, 'login')} />
-                <input type="password" placeholder="Password" value={form.password} onChange={(e) => updateValue(e, 'password')} />
-                <button>Login</button>
-            </form>
+                    return false;
+                }}>
+                    <input type="text" placeholder="Login" value={form.login} onChange={(e) => updateValue(e, 'login')} />
+                    <input type="password" placeholder="Password" value={form.password} onChange={(e) => updateValue(e, 'password')} />
+                    <button>Login</button>
+                </form>
+            </div>
         </div>
     )
 }

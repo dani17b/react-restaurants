@@ -11,6 +11,9 @@ import "./restaurantsList.css";
   )
 } */
 
+// Conectar el componentte con redux y lanzar la carga del menu a traves de un dispatch de la accion
+// - En cada carga traer paginas de x tamaño y al estar cerca del final traer la siguiente pagina
+
 export const RestaurantsList = (props) => {
 
   const {

@@ -9,7 +9,7 @@ const Header = (props) => {
     return (
         <div className="header">
             <span className="logo"></span>
-            <div className="user">{userInfo.name}</div>
+            <div className="user">{`${userInfo.name} (${userInfo.rol})`}</div>
             <div className="menu">
                 <div className="menu-item">
                     <span className="icon"></span>
