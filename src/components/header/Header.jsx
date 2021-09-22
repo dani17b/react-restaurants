@@ -19,6 +19,10 @@ const Header = (props) => {
                     <span className="icon"></span>
                     <span className="title">Gestion</span>
                 </div>
+                <div className="menu-item">
+                    <span className="icon"></span>
+                    <span className="title">Logout</span>
+                </div>
             </div>
         </div>
     )
