@@ -1,6 +1,6 @@
 
 import React, { useEffect, useMemo, useState } from 'react';
-import { Header } from '../../components/header/Header';
+import Header from '../../components/header/Header';
 import { getMenus } from "./actions";
 import { RestaurantCard } from './components/restaurantCard/RestaurantCard';
 import "./restaurantsList.css";

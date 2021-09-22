@@ -19,7 +19,8 @@ import {
       case USER_LOGIN_RESPONSE:
         return {
             ...state,
-            loading : false
+            loading : false,
+            userInfo : action.userInfo
           };
       default:
         return state;

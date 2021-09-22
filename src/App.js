@@ -6,21 +6,23 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
+import { connect } from 'react-redux';
 
 import { RestaurantsList } from './modules/restaurantsList/RestaurantsList';
-import { Login } from './modules/login/Login';
-import { useState } from 'react';
+import Login from './modules/login/Login';
 
-function App() {
-  const [userInfo, setUserInfo] = useState(null);
+function App(props) {
 
-  console.log("userInfo", userInfo);
+  const {
+    userInfo
+  } = props;
+
   return (
     <Router>
       <Switch>
         <Route exact={true} path="/">
           {userInfo == null &&
-            <Login setUserInfo={setUserInfo}/>
+            <Login/>
           }
           {userInfo != null &&
            <Redirect
@@ -31,11 +33,16 @@ function App() {
           }
         </Route>
         <Route path="/home">
-              <RestaurantsList userInfo={userInfo}/>
+              <RestaurantsList />
             </Route>
       </Switch>
     </Router>
   );
 }
 
-export default App;
+export default connect(
+  store => ({
+      userInfo: store.login.userInfo,
+  }),
+  null
+)(App);

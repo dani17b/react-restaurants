@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { loginUser } from './actions';
 import './login.css';
 
-export const Login = (props) => {
+import { connect } from 'react-redux';
 
+const Login = (props) => {
     const {
-        setUserInfo
+        login,
+        loading
     } = props;
 
     const [form, setForm] = useState({
@@ -30,11 +32,11 @@ export const Login = (props) => {
     return (
         <div className="login">
             Esto es la pantalla de Login
+            {loading &&
+                <div className="loading">Haciendo login contra el servidor</div>
+            }
             <form onSubmit={(e) => {
-                loginUser(form.login, form.password).then(userInfo => {
-                    setUserInfo(userInfo);
-                    window.location.href = '/home';
-                });
+                login(form.login, form.password);
                 e.stopPropagation();
                 e.preventDefault();
 
@@ -47,3 +49,12 @@ export const Login = (props) => {
         </div>
     )
 }
+
+export default connect(
+    store => ({
+        loading: store.login.loading,
+    }),
+    dispatch => ({
+        login : (login, password) => dispatch(loginUser(login, password))
+    })
+)(Login);

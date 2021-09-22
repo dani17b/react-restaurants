@@ -1,10 +1,15 @@
 import "./header.css";
+import { connect } from 'react-redux';
 
-export const Header = () => {
+const Header = (props) => {
+    const {
+        userInfo
+    } = props;
+
     return (
         <div className="header">
             <span className="logo"></span>
-            <div className="user">Hola xxxx</div>
+            <div className="user">{userInfo.name}</div>
             <div className="menu">
                 <div className="menu-item">
                     <span className="icon"></span>
@@ -18,3 +23,10 @@ export const Header = () => {
         </div>
     )
 }
+
+export default connect(
+    store => ({
+        userInfo: store.login.userInfo,
+    }),
+    null
+)(Header);
