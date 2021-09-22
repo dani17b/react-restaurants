@@ -1,5 +1,6 @@
 
 import React, { useEffect, useMemo, useState } from 'react';
+import { Header } from '../../components/header/Header';
 import { getMenus } from "./actions";
 import { RestaurantCard } from './components/restaurantCard/RestaurantCard';
 import "./restaurantsList.css";
@@ -10,7 +11,11 @@ import "./restaurantsList.css";
   )
 } */
 
-export const RestaurantsList = () => {
+export const RestaurantsList = (props) => {
+
+  const {
+    userInfo
+  } = props;
 
   const [loading, setLoading] = useState(true);
   const [reload, setReload] = useState(false);
@@ -45,11 +50,8 @@ export const RestaurantsList = () => {
 
   return (
     <>
-      <div id="header">
-        <span className="logo"></span>
-        <span className="title">Inicio</span>
-        <span className="title">Gestion</span>
-      </div>
+      <Header />
+      <div>{`Hola ${userInfo ? userInfo.name : ''}`}</div>
       <div>
         {count}
         <button onClick={() => setCount(count + 1)}>Add count</button>

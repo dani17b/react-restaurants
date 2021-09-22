@@ -2,11 +2,15 @@ import { useState, useEffect } from 'react';
 import { loginUser } from './actions';
 import './login.css';
 
-export const Login = () => {
+export const Login = (props) => {
+
+    const {
+        setUserInfo
+    } = props;
 
     const [form, setForm] = useState({
-        login: '',
-        password: ''
+        login: 'pepe',
+        password: '1234'
     })
 
     /* useEffect(() => {
@@ -28,7 +32,7 @@ export const Login = () => {
             Esto es la pantalla de Login
             <form onSubmit={(e) => {
                 loginUser(form.login, form.password).then(userInfo => {
-                    // TODO ver como gestionar user info
+                    setUserInfo(userInfo);
                     window.location.href = '/home';
                 });
                 e.stopPropagation();
