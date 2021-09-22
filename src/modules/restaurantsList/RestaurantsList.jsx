@@ -40,8 +40,6 @@ export const RestaurantsList = (props) => {
     }
   }, [reload]);
 
-  console.log("Render RestaurantsList : ", reload);
-
   const Items = React.memo(() => <>
     {menus.map(menuItem =>
       <RestaurantCard restaurant={menuItem} key={menuItem.id} />

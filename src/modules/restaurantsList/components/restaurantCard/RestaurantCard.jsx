@@ -8,7 +8,6 @@ export const RestaurantCard = (props) => {
         id
     } = props.restaurant;
 
-    console.log(`Render Resaurant Card with id ${id}`)
     return (
         <div className="restaurant-card loading">
             <div>Carrusel</div>
