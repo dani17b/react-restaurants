@@ -9,7 +9,7 @@ export const RestaurantCard = (props) => {
     } = props.restaurant;
 
     return (
-        <div className="restaurant-card loading">
+        <div className="restaurant-card loading-item">
             <div>Carrusel</div>
             <form>
                 <div>

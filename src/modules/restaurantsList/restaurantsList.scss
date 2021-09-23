@@ -1,0 +1,41 @@
+.restaurants {
+    padding : 8px;
+    height: calc(100% - 97px - 16px);
+    overflow: scroll;
+    position: relative;
+}
+
+.restaurants .list{
+    
+}
+
+.loading-small{
+    background-color: blueviolet;
+    position: absolute;
+    top: calc(97px + 8px);
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    z-index: 9;
+}
+
+.restaurants{
+    &__loading{
+        display: flex;
+        width: 100%;
+        height: calc(100% - 100px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .loading-icon{
+            width: 150px;
+            height: 150px;
+        }
+    }
+
+
+}
+.restaurants .loading .loading-title{
+    margin-top: 16px;
+}

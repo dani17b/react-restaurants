@@ -6,9 +6,10 @@ import {
 } from "react-router-dom";
 import { connect } from 'react-redux';
 
-import { RestaurantsList } from './modules/restaurantsList/RestaurantsList';
+import RestaurantsList from './modules/restaurantsList/RestaurantsList';
 import Login from './modules/login/Login';
 import PrivateRoute from "./components/privateRoute/PrivateRoute";
+import BaseLayout from "./components/baseLayout/BaseLayout";
 
 function App(props) {
 
@@ -33,6 +34,11 @@ function App(props) {
         </Route>
         <PrivateRoute path="/home">
           <RestaurantsList />
+        </PrivateRoute>
+        <PrivateRoute path="/management">
+          <BaseLayout>
+            <div>Pantalla de gestion del restaurante</div>
+          </BaseLayout>
         </PrivateRoute>
       </Switch>
     </Router>

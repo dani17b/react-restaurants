@@ -1,13 +1,13 @@
 [
     {
         "login" : "pepe", 
-        "password" : "1234",
+        "password" : "pepe2021",
         "name" : "Pepe",
         "rol" : "user"
     },
     {
         "login" : "juan", 
-        "password" : "1234",
+        "password" : "juan2021",
         "name" : "Juan",
         "rol" : "admin"
     }

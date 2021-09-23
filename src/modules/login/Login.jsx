@@ -12,14 +12,12 @@ const Login = (props) => {
 
     const [form, setForm] = useState({
         login: 'pepe',
-        password: '1234'
+        password: 'pepe2021'
     })
 
     /* useEffect(() => {
         loginUser("pepe", "1234").then(userInfo => console.log(userInfo));
     }); */
-
-    console.log(form);
 
     const updateValue = (e, key) => {
         setForm({
